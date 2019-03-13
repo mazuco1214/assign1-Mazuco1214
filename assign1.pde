@@ -70,7 +70,7 @@ void draw() {
   rectMode(CORNERS);
   noStroke();
   fill(255,0,0);
-  rect(lazerX-40+lazerSpeed,lazerY,(lazerX)+lazerSpeed,(lazerY+10),5,5,5,5);
+  rect(lazerX-40+lazerSpeed,lazerY,lazerX+lazerSpeed,lazerY+10,5,5,5,5);
   lazerSpeed -=2;
   lazerSpeed %=146;
 
