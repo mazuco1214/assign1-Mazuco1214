@@ -7,8 +7,11 @@ float robotY ;
 float robotPlace=int(random(2,6));
 
 float lazerX;
+float lazerL=0;
 float lazerY;
-float lazerSpeed;
+float lazerSpeed = 0;
+
+float  lazerLength=0;
 
 float soldierX;
 float soldierY;
@@ -66,13 +69,21 @@ void draw() {
 
   //lazer
   lazerX=robotX+25;
-  lazerY=robotY+32;
+  lazerY=robotY+37;
+  lazerL=lazerX;
   rectMode(CORNERS);
-  noStroke();
-  fill(255,0,0);
-  rect(lazerX-40-lazerSpeed,lazerY,lazerX-lazerSpeed,lazerY+10,5,5,5,5);
+  strokeWeight(10);
+  stroke(255,0,0);
+  line(lazerX-lazerSpeed,lazerY,lazerL-lazerLength,lazerY);
   lazerSpeed +=2;
-  lazerSpeed %=146;
+  if(lazerSpeed >=40){
+    lazerLength +=2;
+  }
+
+  if(lazerX-lazerSpeed <= robotX-160){
+   lazerSpeed = 0;
+   lazerLength = 0;
+  }
 
   
   //robot's place  
